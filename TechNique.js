@@ -21,6 +21,17 @@
   => 10/12/2022
 ]
 
+#การตรวจจับ เช็คขนาด หน้าจอที่ใช้งาน [
+  try{ document.createEvent("TouchEvent"); var isMobile = true; }
+  catch(e){ var isMobile = false; }
+  การใช้
+  switch(isMobile) {
+      case true: var PageLength = 5; break;
+      case false: var PageLength = 15; break;
+      default: var PageLength = 10; break;
+  }
+]
+
 #การส่งค่าไปหน้าอื่นและรับค่า [
   ส่ง
   window.location.replace("loadlist.php?IDLogi="+inval['lastid']+"");
@@ -88,7 +99,6 @@
     }
 
     $arrCol['output'] = $output;
-
     array_push($resultArray,$arrCol);
     echo json_encode($resultArray);
     ?>
