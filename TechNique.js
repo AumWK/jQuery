@@ -20,3 +20,39 @@
   var Format_Date = ""+D+"/"+M+"/"+Y+"";
   => 10/12/2022
 ]
+
+
+
+#การส่งข้อมูลไปหลังบ้าน ajax [
+  $.ajax({
+    url: "menus/ajax/ajaxdata.php?a=TEST",
+    type: "POST",
+    data: { Year : $("#filt_year").val(), },
+    success: function(result) { 
+      var obj = jQuery.parseJSON(result);
+      $.each(obj,function(key,inval) {
+        console.log(inval['output']);
+      });
+    }
+  })
+  
+  หลังบ้าน PHP
+  <?php
+    include('../../../../core/config.core.php');
+    include('../../../../core/functions.core.php');
+    date_default_timezone_set('Asia/Bangkok');
+    session_start();
+    $resultArray = array();
+    $arrCol = array();
+    $output = "";
+
+    if($_GET['a'] == 'TEST') {
+      echo $_POST['Year'];
+    }
+
+    $arrCol['output'] = $output;
+
+    array_push($resultArray,$arrCol);
+    echo json_encode($resultArray);
+    ?>
+]
