@@ -21,6 +21,13 @@
   => 10/12/2022
 ]
 
+#การส่งค่าไปหน้าอื่นและรับค่า [
+  ส่ง
+  window.location.replace("loadlist.php?IDLogi="+inval['lastid']+"");
+  รับ
+  $_GET['IDLogi'];
+]
+
 #การทำปุ่มค้นหา [
   $("#FilterBox").on("keyup", function(){
       var kwd = $(this).val().toLowerCase();
