@@ -52,6 +52,23 @@
   $_GET['IDLogi'];
 ]
 
+#Datatable [
+  setTimeout(function(){
+      switch(isMobile) {
+          case true: var PageLength = 5; break;
+          case false: var PageLength = 15; break;
+          default: var PageLength = 10; break;
+      }
+      $('#TableDATA').DataTable({
+          destroy: true,
+          "bAutoWidth": false,
+          "ordering": false,
+          "pageLength": PageLength,
+          dom: 'frtip'
+      });
+  }, 1000);
+]
+
 #การทำปุ่มค้นหา [
   $("#FilterBox").on("keyup", function(){
       var kwd = $(this).val().toLowerCase();
