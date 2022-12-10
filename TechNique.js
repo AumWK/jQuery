@@ -23,6 +23,15 @@
 
 
 
+#การทำปุ่มค้นหา [
+  $("#FilterBox").on("keyup", function(){
+      var kwd = $(this).val().toLowerCase();
+      $("#Tbody tr").filter(function(){
+          $(this).toggle($(this).text().toLowerCase().indexOf(kwd) > -1)
+      });
+  });
+]
+
 #การส่งข้อมูลไปหลังบ้าน ajax [
   $.ajax({
     url: "menus/ajax/ajaxdata.php?a=TEST",
