@@ -21,14 +21,35 @@
   => 10/12/2022
 ]
 
-
-
 #การทำปุ่มค้นหา [
   $("#FilterBox").on("keyup", function(){
       var kwd = $(this).val().toLowerCase();
       $("#Tbody tr").filter(function(){
           $(this).toggle($(this).text().toLowerCase().indexOf(kwd) > -1)
       });
+  });
+]
+
+#การใส่ไอคอน icon, PopUp, popover [
+  HTML
+  <a href="javascript:void(0);" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom">
+      <i class="fas fa-info-circle"></i> คำอธิบายสถานะ
+  </a>
+  jQuery
+  $(document).ready(function(){
+      $('[data-bs-toggle="popover"]').popover({
+          html:true,
+          content:function(){
+              var Text =  "<div class='row'>
+                              "<div class='col-sm'>"+
+                                  "<i class='fas fa-hourglass-half'></i> = รอโหลดสินค้า"+
+                              "</div>"+
+                          "</div>";
+              return (Text);
+          },
+      });   
+
+      CallData();
   });
 ]
 
