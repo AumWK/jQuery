@@ -8,6 +8,18 @@
   => 5,004.23
 ]
 
+#selectpicker [
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+  <select class="form-control form-control-sm selectpicker" name="ItemCode" id="ItemCode" data-live-search="true"></select>
+  $("#ItemCode").html(inval["ItemCode"]);
+  $("#ItemCode").selectpicker("refresh");
+  ล้างข้อมูล
+  $("#ItemCode").selectpicker("destroy");
+  ให้เลือก
+  $("#ItemCode").val(Item).change(); 
+  $("#ItemCode").selectpicker();
+]
+
 #substring or replace [
   var number = "5,004.23";
   number.replace(/,/g, "") 
