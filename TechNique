@@ -1,1 +1,8 @@
-
+#number_format [
+  function number_format(number,decimal) {
+      var options = { roundingPriority: "lessPrecision", minimumFractionDigits: decimal, maximumFractionDigits: decimal };
+      var formatter = new Intl.NumberFormat("en",options);
+      return formatter.format(number)
+  }
+  Ex. number_format(5004.235,2); => 5,004.23
+]
